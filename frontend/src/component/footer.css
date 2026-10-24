@@ -1,0 +1,90 @@
+
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500&display=swap');
+
+        .brand-font { font-family: 'Playfair Display', serif; }
+        .body-font  { font-family: 'DM Sans', sans-serif; }
+
+        .footer-link {
+          color: #6b7280;
+          font-size: 0.875rem;
+          transition: color 0.2s;
+          text-decoration: none;
+          display: inline-block;
+        }
+        .footer-link:hover { color: #111827; }
+
+        .social-btn {
+          width: 36px; height: 36px;
+          border: 1px solid #e5e7eb;
+          border-radius: 50%;
+          display: flex; align-items: center; justify-content: center;
+          color: #6b7280;
+          transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+          cursor: pointer;
+        }
+        .social-btn:hover {
+          background: #111827;
+          color: #fff;
+          border-color: #111827;
+          transform: translateY(-2px);
+        }
+
+        .newsletter-input {
+          flex: 1;
+          padding: 0.625rem 1rem;
+          border: 1px solid #e5e7eb;
+          border-radius: 9999px;
+          font-size: 0.875rem;
+          color: #111827;
+          outline: none;
+          font-family: 'DM Sans', sans-serif;
+          transition: border-color 0.2s;
+          background: #fff;
+        }
+        .newsletter-input::placeholder { color: #9ca3af; }
+        .newsletter-input:focus { border-color: #f59e0b; }
+
+        .newsletter-btn {
+          background: #f59e0b;
+          color: #fff;
+          font-weight: 500;
+          font-size: 0.875rem;
+          padding: 0.625rem 1.25rem;
+          border-radius: 9999px;
+          border: none;
+          cursor: pointer;
+          white-space: nowrap;
+          font-family: 'DM Sans', sans-serif;
+          transition: background 0.2s, transform 0.15s;
+        }
+        .newsletter-btn:hover { background: #d97706; transform: translateY(-1px); }
+
+        .divider { border: none; border-top: 1px solid #f3f4f6; margin: 0; }
+
+        .footer-col-title {
+          font-family: 'Playfair Display', serif;
+          font-size: 0.875rem;
+          color: #111827;
+          font-weight: 600;
+          letter-spacing: 0.04em;
+          margin-bottom: 1rem;
+        }
+
+        .tag-chip {
+          display: inline-block;
+          background: #f9fafb;
+          border: 1px solid #e5e7eb;
+          color: #6b7280;
+          font-size: 0.75rem;
+          padding: 0.3rem 0.75rem;
+          border-radius: 9999px;
+          transition: background 0.2s, color 0.2s, border-color 0.2s;
+          cursor: pointer;
+          text-decoration: none;
+        }
+        .tag-chip:hover {
+          background: #fff7ed;
+          border-color: #fed7aa;
+          color: #92400e;
+        }
+   

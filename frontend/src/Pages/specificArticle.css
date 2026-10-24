@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=DM+Sans:wght@300;400;500&display=swap');
+
+.sa-page {
+  --sa-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --sa-sans: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --sa-ink: #111827;
+  --sa-text: #374151;
+  --sa-muted: #6b7280;
+  --sa-line: #e5e7eb;
+
+  font-family: var(--sa-sans);
+  color: var(--sa-text);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Headings use the serif face */
+.sa-page h1,
+.sa-page h2,
+.sa-page h3 {
+  font-family: var(--sa-serif);
+  color: var(--sa-ink);
+}
+
+/* Small uppercase labels ("In brief", "Written by") stay in the sans face */
+.sa-page .sa-label {
+  font-family: var(--sa-sans);
+  font-weight: 500;
+}
+
+/* Article title */
+.sa-title {
+  font-weight: 800;
+  font-size: clamp(2rem, 1.4rem + 3vw, 3.5rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+
+/* "In brief" excerpt */
+.sa-brief-text {
+  font-family: var(--sa-serif);
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(1.1rem, 1rem + 0.5vw, 1.35rem);
+  line-height: 1.6;
+  color: var(--sa-ink);
+}
+
+/* Article body */
+.sa-prose {
+  font-family: var(--sa-sans);
+  font-weight: 400;
+  font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
+  line-height: 1.85;
+  color: var(--sa-text);
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+.sa-prose p {
+  margin: 0 0 1.5rem;
+}
+
+/* Editorial drop cap on the first paragraph (tablet and up) */
+@media (min-width: 640px) {
+  .sa-prose > p:first-of-type::first-letter {
+    font-family: var(--sa-serif);
+    font-weight: 700;
+    font-size: 4.25rem;
+    line-height: 0.85;
+    float: left;
+    margin: 0.35rem 0.6rem 0 0;
+    color: var(--sa-ink);
+  }
+}
+
+.sa-prose h2 {
+  font-weight: 700;
+  font-size: clamp(1.4rem, 1.2rem + 1vw, 1.9rem);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin: 3rem 0 1rem;
+}
+
+/* Related article cards */
+.sa-card-title {
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.35;
+}
+
+/* Smooth, subtle hover on related cards */
+.sa-page a {
+  transition: color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .sa-page * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Print: clean reading layout */
+@media print {
+  .sa-page button,
+  .sa-page [role='status'] {
+    display: none;
+  }
+}

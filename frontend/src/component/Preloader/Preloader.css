@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=DM+Sans:wght@300;400;500&display=swap');
+
+.pl {
+  --pl-bg: #111827;
+  --pl-fg: #f9fafb;
+  --pl-muted: #9ca3af;
+  --pl-accent: #ec4899;
+  --pl-ease: cubic-bezier(0.76, 0, 0.24, 1);
+
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  background: var(--pl-bg);
+  color: var(--pl-fg);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  transform: translateY(0);
+  will-change: transform;
+  overflow: hidden;
+}
+
+/* Route changes: curtain rises from the bottom first */
+.pl--route {
+  animation: pl-in 0.45s var(--pl-ease);
+}
+
+/* Curtain slides away (upward) with a soft curved bottom edge */
+.pl--leaving {
+  transform: translateY(-100%);
+  border-radius: 0 0 50% 50% / 0 0 10vh 10vh;
+  transition: transform 0.9s var(--pl-ease), border-radius 0.9s ease;
+}
+
+.pl--leaving .pl__inner {
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.pl__inner {
+  width: min(100%, 28rem);
+  text-align: center;
+}
+
+/* Wordmark: letters rise out of a mask, one after another */
+.pl__brand {
+  margin: 0;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 800;
+  font-size: clamp(2rem, 1.2rem + 4vw, 3.5rem);
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  color: var(--pl-fg);
+}
+
+.pl__mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.12em;
+}
+
+.pl__char {
+  display: inline-block;
+  transform: translateY(110%);
+  animation: pl-rise 0.7s var(--pl-ease) forwards;
+  animation-delay: calc(0.15s + var(--i) * 0.05s);
+}
+
+.pl--fast .pl__char {
+  animation-duration: 0.45s;
+  animation-delay: calc(0.1s + var(--i) * 0.02s);
+}
+
+.pl__tagline {
+  margin: 0.75rem 0 0;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--pl-muted);
+  opacity: 0;
+  animation: pl-fade 0.8s ease forwards;
+  animation-delay: 0.9s;
+}
+
+/* Progress line fills over the minimum display time */
+.pl__bar {
+  height: 2px;
+  margin: 2rem auto 0;
+  width: min(100%, 14rem);
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.pl__bar-fill {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: var(--pl-accent);
+  transform: scaleX(0);
+  transform-origin: left center;
+  animation: pl-fill var(--pl-duration) linear forwards;
+}
+
+@keyframes pl-in {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
+@keyframes pl-rise {
+  to { transform: translateY(0); }
+}
+
+@keyframes pl-fade {
+  to { opacity: 1; }
+}
+
+@keyframes pl-fill {
+  to { transform: scaleX(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pl--route { animation: none; }
+  .pl__char { transform: none; animation: none; }
+  .pl__tagline { opacity: 1; animation: none; }
+  .pl--leaving {
+    transition: opacity 0.4s ease;
+    transform: none;
+    opacity: 0;
+  }
+}

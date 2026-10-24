@@ -1,0 +1,191 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&family=DM+Sans:wght@300;400;500&display=swap');
+
+  .brand-font { font-family: 'Playfair Display', serif; }
+  .body-font  { font-family: 'DM Sans', sans-serif; }
+
+  /* ── Hero ── */
+  .sp-hero {
+    background: linear-gradient(160deg, #fffbeb 0%, #ffffff 50%, #f0f9ff 100%);
+    border-bottom: 1px solid #f3f4f6;
+    position: relative; overflow: hidden;
+  }
+  .sp-hero-orb {
+    position: absolute; border-radius: 50%; pointer-events: none;
+    background: radial-gradient(circle, rgba(245,158,11,0.12) 0%, transparent 70%);
+  }
+
+  /* ── Plan cards ── */
+  .sp-plan-card {
+    border: 1px solid #e5e7eb; border-radius: 22px; background: #fff;
+    padding: 2rem; position: relative; overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    cursor: pointer; display: flex; flex-direction: column;
+  }
+  .sp-plan-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 56px -12px rgba(0,0,0,0.12);
+  }
+  .sp-plan-card.sp-popular {
+    border-color: #f59e0b;
+    box-shadow: 0 8px 32px -8px rgba(245,158,11,0.2);
+  }
+  .sp-plan-card.sp-popular:hover {
+    box-shadow: 0 20px 56px -12px rgba(245,158,11,0.25);
+  }
+  .sp-plan-card.sp-selected {
+    border-color: #111827;
+    box-shadow: 0 8px 32px -8px rgba(0,0,0,0.15);
+  }
+  .sp-popular-badge {
+    position: absolute; top: 1.25rem; right: 1.25rem;
+    background: #f59e0b; color: #111827; font-size: 0.65rem;
+    font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 9999px;
+  }
+  .sp-plan-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem; font-weight: 700; line-height: 1; color: #111827;
+  }
+  .sp-plan-check {
+    width: 18px; height: 18px; border-radius: 50%; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    background: #d1fae5;
+  }
+  .sp-plan-check svg { color: #065f46; }
+
+  /* ── Billing toggle ── */
+  .sp-toggle-wrap {
+    display: inline-flex; align-items: center;
+    background: #f3f4f6; border-radius: 9999px; padding: 4px;
+    gap: 2px;
+  }
+  .sp-toggle-btn {
+    padding: 0.4rem 1.1rem; border-radius: 9999px; font-size: 0.8rem;
+    font-weight: 500; font-family: 'DM Sans', sans-serif;
+    border: none; cursor: pointer; transition: all 0.2s; color: #6b7280;
+    background: transparent;
+  }
+  .sp-toggle-btn.active {
+    background: #fff; color: #111827;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  }
+  .sp-save-badge {
+    background: #d1fae5; color: #065f46; font-size: 0.65rem; font-weight: 600;
+    padding: 2px 8px; border-radius: 9999px; letter-spacing: 0.04em;
+  }
+
+  /* ── Input ── */
+  .sp-input {
+    width: 100%; padding: 0.8rem 1.1rem;
+    border: 1px solid #e5e7eb; border-radius: 12px;
+    font-size: 0.875rem; color: #111827; outline: none;
+    font-family: 'DM Sans', sans-serif; background: #fff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .sp-input::placeholder { color: #9ca3af; }
+  .sp-input:focus {
+    border-color: #f59e0b;
+    box-shadow: 0 0 0 3px rgba(245,158,11,0.1);
+  }
+  .sp-input.sp-error { border-color: #ef4444; }
+
+  /* ── CTA button ── */
+  .sp-btn-primary {
+    width: 100%; background: #111827; color: #fff; font-weight: 600;
+    font-size: 0.9rem; padding: 0.9rem 1.5rem; border-radius: 12px;
+    border: none; cursor: pointer; font-family: 'DM Sans', sans-serif;
+    transition: background 0.2s, transform 0.15s;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  .sp-btn-primary:hover { background: #374151; transform: translateY(-1px); }
+  .sp-btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+  .sp-btn-primary.sp-amber {
+    background: #f59e0b; color: #111827;
+  }
+  .sp-btn-primary.sp-amber:hover { background: #fbbf24; }
+
+  /* ── Feature row ── */
+  .sp-feature-row {
+    display: flex; align-items: flex-start; gap: 12px; padding: 0.75rem 0;
+    border-bottom: 1px solid #f3f4f6;
+  }
+  .sp-feature-row:last-child { border-bottom: none; }
+  .sp-feature-icon {
+    width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center; font-size: 1rem;
+  }
+
+  /* ── Testimonial card ── */
+  .sp-testimonial {
+    border: 1px solid #e5e7eb; border-radius: 18px; background: #fff;
+    padding: 1.5rem; transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .sp-testimonial:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px -8px rgba(0,0,0,0.1);
+  }
+  .sp-stars { color: #f59e0b; letter-spacing: 2px; font-size: 0.8rem; }
+
+  /* ── FAQ item ── */
+  .sp-faq-item {
+    border-bottom: 1px solid #f3f4f6; overflow: hidden;
+  }
+  .sp-faq-item:last-child { border-bottom: none; }
+  .sp-faq-btn {
+    width: 100%; display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 0; background: none; border: none; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; text-align: left;
+  }
+  .sp-faq-chevron {
+    width: 20px; height: 20px; flex-shrink: 0; color: #9ca3af;
+    transition: transform 0.25s ease;
+  }
+  .sp-faq-chevron.open { transform: rotate(180deg); }
+  .sp-faq-body {
+    overflow: hidden; transition: max-height 0.3s ease, opacity 0.3s ease;
+  }
+  .sp-faq-body.open  { max-height: 200px; opacity: 1; }
+  .sp-faq-body.closed { max-height: 0; opacity: 0; }
+
+  /* ── Social proof bar ── */
+  .sp-proof-bar {
+    background: #111827; border-radius: 16px;
+    padding: 1.25rem 2rem;
+  }
+
+  /* ── Success state ── */
+  .sp-success {
+    text-align: center; padding: 3rem 2rem;
+  }
+  @keyframes sp-checkPop {
+    0%   { transform: scale(0); opacity: 0; }
+    60%  { transform: scale(1.2); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  .sp-check-circle {
+    width: 72px; height: 72px; border-radius: 50%;
+    background: #d1fae5; display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1.5rem; animation: sp-checkPop 0.5s ease both;
+  }
+
+  /* ── Animations ── */
+  @keyframes sp-fadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .sp-fade-up { animation: sp-fadeUp 0.6s ease both; }
+  .sp-d1 { animation-delay: 0.05s; } .sp-d2 { animation-delay: 0.1s;  }
+  .sp-d3 { animation-delay: 0.15s; } .sp-d4 { animation-delay: 0.2s;  }
+  .sp-d5 { animation-delay: 0.25s; } .sp-d6 { animation-delay: 0.3s;  }
+
+  @keyframes sp-pulse { 0%,100% { opacity:1; } 50% { opacity:0.5; } }
+  .sp-pulse { animation: sp-pulse 2s ease-in-out infinite; }
+
+  /* ── Divider ── */
+  .sp-divider {
+    display: flex; align-items: center; gap: 12px; margin: 1rem 0;
+  }
+  .sp-divider::before, .sp-divider::after {
+    content: ''; flex: 1; height: 1px; background: #e5e7eb;
+  }
