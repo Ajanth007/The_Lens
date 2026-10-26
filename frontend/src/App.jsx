@@ -11,6 +11,7 @@ import SpecificArticle from "./Pages/specificAriticle";
 import Login from './Pages/login'
 import Register from './Pages/register'
 import AuthorProfile from "./Pages/AuthorProfile";
+import AddNewArticle from './Pages/addNewArticle'
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register/>} />
             <Route path="/profile" element={<AuthorProfile />} />
+             <Route path="/addnewArticle" element={<AddNewArticle  />} />
           </Route>
         </Routes>
 
