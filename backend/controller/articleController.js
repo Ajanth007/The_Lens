@@ -104,9 +104,135 @@ const getArticleById = async (req, res) => {
   }
 };
 
+// const   createArticle = async (req, res) => {
+//   try {
+//     const {
+//       title,
+//       slug,
+//       excerpt,
+//       content,
+//       category,
+//       author_id,
+//       publish_date,
+//       read_time,
+//       image_color,
+//       gradient,
+//       featured,
+//     } = req.body;
+
+//     const [result] = await pool.execute(
+//       `
+//       INSERT INTO articles (
+//         title,
+//         slug,
+//         excerpt,
+//         content,
+//         category,
+//         author_id,
+//         publish_date,
+//         read_time,
+//         image_color,
+//         gradient,
+//         featured
+//       )
+//       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+//       `,
+//       [
+//         title,
+//         slug,
+//         excerpt,
+//         content,
+//         category,
+//         author_id,
+//         publish_date,
+//         read_time,
+//         image_color,
+//         gradient,
+//         featured ? 1 : 0,
+//       ],
+//     );
+
+//     console.log(result)
+
+//     const [rows] = await pool.execute(
+//       `
+//       SELECT a.*, auth.name AS author_name, auth.initials, auth.role, auth.bio,
+//              auth.avatar_bg, auth.avatar_text, auth.accent_color
+//       FROM articles a
+//       JOIN authors auth ON a.author_id = auth.id
+//       WHERE a.id = ?
+//       `,
+//       [result.insertId],
+//     );
+
+//     return res.status(201).json({
+//       message: "Article created successfully",
+//       article: rows[0],
+//     });
+//   } catch (err) {
+//     console.error(err);
+//     return res.status(500).json({
+//       error: "Failed to create article",
+//     });
+//   }
+// };
+
+const createArticle = async (req, res) => {
+  const start = Date.now();
+
+  try {
+    console.log("POST request received");
+
+    const [result] = await pool.execute(
+      `INSERT INTO articles (
+        title, slug, excerpt, content, category, author_id,
+        publish_date, read_time, image_color, gradient, featured
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        req.body.title,
+        req.body.slug,
+        req.body.excerpt,
+        req.body.content,
+        req.body.category,
+        req.body.author_id,
+        req.body.publish_date,
+        req.body.read_time,
+        req.body.image_color,
+        req.body.gradient,
+        req.body.featured ? 1 : 0,
+      ]
+    );
+
+    console.log("INSERT completed:", Date.now() - start, "ms");
+
+    const [rows] = await pool.execute(
+      `SELECT a.*, auth.name AS author_name, auth.initials,
+              auth.role, auth.bio, auth.avatar_bg,
+              auth.avatar_text, auth.accent_color
+       FROM articles a
+       JOIN authors auth ON a.author_id = auth.id
+       WHERE a.id = ?`,
+      [result.insertId]
+    );
+
+    console.log("SELECT completed:", Date.now() - start, "ms");
+
+    return res.status(201).json({
+      message: "Article created successfully",
+      article: rows[0],
+    });
+  } catch (err) {
+    console.error("Create article error:", err);
+    return res.status(500).json({
+      error: "Failed to create article",
+    });
+  }
+};
+
+
 module.exports = {
   getArticles,
-  getArticleById,
+  getArticleById,createArticle
 
 };
 

@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 
 import { AuthContext } from "../context/AuthContext";
 import { useContext } from "react";
+import axios from "axios";
 
 // Replace with data from your API
 const CATEGORIES = [
@@ -11,11 +12,6 @@ const CATEGORIES = [
   "Behind the Seams",
   "News",
 ];
-
-/* 
-const AUTHORS = [
-  { id: 1, name: "Admin" },
-  { id: 2, name: "Editorial Team" }, */
 
 const GRADIENTS = [
   { name: "Olive", value: "linear-gradient(135deg, #8B9A6E, #2F3A25)" },
@@ -49,7 +45,9 @@ const AddArticle = () => {
   const contentRef = useRef(null);
   const [slugTouched, setSlugTouched] = useState(false);
 
-  const [form, setForm] = useState({
+  const [submitting, setSubmitting] = useState(false);
+
+  const initialForm = {
     title: "",
     slug: "",
     excerpt: "",
@@ -62,7 +60,24 @@ const AddArticle = () => {
     image_color: "#8B9A6E",
     gradient: GRADIENTS[0].value,
     featured: false,
-  });
+  };
+
+  //   const [form, setForm] = useState({
+  //     title: "",
+  //     slug: "",
+  //     excerpt: "",
+  //     content: "",
+  //     category: "",
+  //     author_id: "",
+  //     author_name: "",
+  //     publish_date: today(),
+  //     read_time: "5 min",
+  //     image_color: "#8B9A6E",
+  //     gradient: GRADIENTS[0].value,
+  //     featured: false,
+  //   });
+
+  const [form, setForm] = useState(initialForm);
 
   useEffect(() => {
     if (!user) {
@@ -135,15 +150,57 @@ const AddArticle = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  //   const handleSubmit = (e) => {
+  //     e.preventDefault();
+  //     const payload = {
+  //       ...form,
+  //       author_id: Number(form.author_id),
+  //       featured: form.featured ? 1 : 0,
+  //     };
+  //     console.log(payload);
+  //     console.log(form)
+  //     // POST payload to your API here
+  //   };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (submitting) return;
+
+    setSubmitting(true);
+
     const payload = {
       ...form,
       author_id: Number(form.author_id),
       featured: form.featured ? 1 : 0,
     };
-    console.log(payload);
-    // POST payload to your API here
+
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/articles",
+        payload,
+      );
+
+      console.log("Article created:", response.data.article);
+
+      // Clear the form after successful submission
+      setForm({
+        ...initialForm,
+        author_id: user.id,
+        author_name: user.username,
+      });
+
+      alert("Article published successfully!");
+    } catch (error) {
+      console.error(
+        "Error creating article:",
+        error.response?.data || error.message,
+      );
+
+      alert(error.response?.data?.error || "Failed to publish article");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const toolbarBtn =
