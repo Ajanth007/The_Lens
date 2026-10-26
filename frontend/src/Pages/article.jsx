@@ -5,7 +5,7 @@
 //   <Footer />
 
 import { useState, useEffect } from "react";
-import "./article.css";
+import "./cssFile/article.css";
 import axios from "axios";
 import {Link} from 'react-router-dom'
 

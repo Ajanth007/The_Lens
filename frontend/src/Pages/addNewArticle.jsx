@@ -6,12 +6,15 @@ import axios from "axios";
 
 // Replace with data from your API
 const CATEGORIES = [
-  "Style Guide",
-  "Fabrics",
-  "Sustainability",
-  "Behind the Seams",
-  "News",
+  "Technology",
+  "Culture",
+  "Science",
+  "Society",
+  "Opinion",
+  "Work"
 ];
+
+
 
 const GRADIENTS = [
   { name: "Olive", value: "linear-gradient(135deg, #8B9A6E, #2F3A25)" },

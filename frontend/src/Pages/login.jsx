@@ -2,7 +2,7 @@
 import { useState,useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Eye, EyeOff, ArrowRight, Mail, LockKeyhole, Check } from "lucide-react";
-import "./Login.css";
+import "./cssFile/Login.css";
 import axios from "axios";
 import {AuthContext} from '../context/AuthContext'
  

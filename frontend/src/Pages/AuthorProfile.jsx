@@ -5,7 +5,7 @@ import { fetchMyWorks } from "../services/authorWorksApi";
 // import { usePreloaderHold } from "../components/Preloader/PreloaderProvider";
 import EditArticleModal from "../component/profile/EditArticleModal";
 import DeleteArticleDialog from "../component/profile/DeleteArticleDialog";
-import "./AuthorProfile.css";
+import "./cssFile/AuthorProfile.css";
 
 const LOGIN_PATH = "/login"; // change if your login route differs
 

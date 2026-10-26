@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import "./Home.css";
+import "./cssFile/Home.css";
 import axios from "axios";
 
 const api = "http://localhost:8000";

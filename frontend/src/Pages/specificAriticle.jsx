@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
-import './SpecificArticle.css'
+import './cssFile/SpecificArticle.css'
 
 
 
