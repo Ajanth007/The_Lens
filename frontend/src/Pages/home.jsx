@@ -3,20 +3,11 @@ import { useNavigate, Link } from "react-router-dom";
 import "./cssFile/Home.css";
 import axios from "axios";
 
-const api = "http://localhost:8000";
+import Subscribe from './subscribe'
+import {apiURL} from '../config/env'
 
-// ── Data ──────────────────────────────────────────────────────────────────────
-// const featured = {
-//   category: "Technology",
-//   title: "The Quiet Revolution: How Small AI Models Are Outpacing Giants",
-//   excerpt:
-//     "For years, bigger meant better in AI research. A new wave of compact, efficient models is challenging that assumption — and reshaping who gets to build the future.",
-//   author: "Marcus Liu",
-//   date: "Feb 18, 2026",
-//   readTime: "9 min read",
-//   gradient: "linear-gradient(135deg, #fef3c7 0%, #e0f2fe 100%)",
-//   accent: "#f59e0b",
-// };
+const api = apiURL.Url;
+
 
 const trending = [
   {
@@ -464,6 +455,8 @@ export default function HomePage() {
             ))}
           </div>
         </section>
+
+<Subscribe />
 
         {/* ── NEWSLETTER CTA ── */}
         <section className="max-w-6xl mx-auto px-6 pb-24">

@@ -2,10 +2,9 @@ import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import './cssFile/SpecificArticle.css'
-
-
-
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+import { apiURL } from "../config/env";
+ 
+const api  =apiURL.Url
 const WORDS_PER_MINUTE = 225;
 
 // Content uses single "\n" between paragraphs; a standalone short line with no

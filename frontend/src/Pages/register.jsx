@@ -14,7 +14,9 @@ import {
 // import "./AuthorLogin.css"; // shared tokens and components
 import "./cssFile/Register.css";
 
-const api = "http://localhost:8000";
+import { apiURL } from "../config/env";
+ 
+const api  =apiURL.Url
 const colors = {
   names: ["Amber", "Blue", "Rose", "Emerald"],
   backgrounds: ["#fef3c7", "#dbeafe", "#fce7f3", "#d1fae5"],

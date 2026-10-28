@@ -8,8 +8,9 @@ import { useState, useEffect } from "react";
 import "./cssFile/topics.css"; // If you prefer to keep styles in a separate CSS file, you can import it like this.
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
-const api = "http://localhost:8000";
+import { apiURL } from "../config/env";
+ 
+const api  =apiURL.Url
 
 const filters = ["All", "Most articles", "Fewest articles", "A–Z"];
 

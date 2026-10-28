@@ -5,8 +5,9 @@ import { Eye, EyeOff, ArrowRight, Mail, LockKeyhole, Check } from "lucide-react"
 import "./cssFile/Login.css";
 import axios from "axios";
 import {AuthContext} from '../context/AuthContext'
+import { apiURL } from "../config/env";
  
-const api  ='http://localhost:8000'
+const api  =apiURL.Url
 
 const fieldClass = (hasError) =>
   `flex items-center gap-3 rounded-xl border bg-white px-4 transition focus-within:ring-4 ${

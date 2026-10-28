@@ -1,6 +1,7 @@
 import axios from "axios";
-
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
+import { apiURL } from "../config/env";
+ 
+const API_URL  =apiURL.Url
 
 // BACKEND: every call below goes to {API_URL}/authors/me/...
 // withCredentials sends your existing login cookie.

@@ -8,8 +8,9 @@ import { useState, useEffect } from "react";
 import "./cssFile/article.css";
 import axios from "axios";
 import {Link} from 'react-router-dom'
+import { apiURL } from "../config/env";
 
-const api = "http://localhost:8000";
+const api = apiURL.Url;
 
 // ── Data ──────────────────────────────────────────────────────────────────────
 const categories = [
